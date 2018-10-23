@@ -77,15 +77,15 @@ if __name__ == '__main__':
     for fid in gutenberg.fileids(): 
         # compute features, make a list of features
         features = []
-        features.append('AWL: ')
+        #features.append('AWL: ')
         features.append(round(avgwordlen(fid), 3))
-        features.append('LD: ')
+       # features.append('LD: ')
         features.append(round(lexical_div(fid), 3))
-        features.append('HLR: ')
+        #features.append('HLR: ')
         features.append(round(hapax(fid), 3))
-        features.append('WPS: ')
+       # features.append('WPS: ')
         features.append(round(words_per_sent(fid), 3))      
-        features.append('PPS: ')
+       # features.append('PPS: ')
         features.append(round(phrasePerSent(fid), 3))
         #name = ''
         #for char in fid:
@@ -102,4 +102,19 @@ if __name__ == '__main__':
         
         emma = ['austen', 3.755, .038, .015, 24.823, 2.778]
         persuasion = ['austen', 3.871, .059, .026, 26.2, 3.179]
-        sense = ['austen', 3.881, .045, ]
+        sense = ['austen', 3.881, 0.045, 0.017, 28.321, 3.174]
+        kjv = ['bible', 3.448, 0.013, 0.004, 33.573, 5.131]
+        poems = ['blake', 3.503, 0.184, 0.097, 19.073, 2.947]
+        stories = ['bryant', 3.5, 0.071, 0.03, 19.407, 2.411]
+        busterbrown = ['burgess', 3.517, 0.082, 0.033, 17.991, 1.8]
+        alice = ['carroll', 3.401, 0.077, 0.033, 20.029, 2.406]
+        ball = ['chesterton', 3.825, 0.086, 0.042, 20.296, 2.122]
+        brown = ['chesterton', 3.791, 0.091, 0.044, 22.612, 2.315]
+        thursday = ['chesterton', 3.774, 0.092, 0.045, 18.496, 2.024]
+        parents = ['edgeworth', 3.509, 0.04, 0.015, 20.593, 2.754]
+        moby_dick = ['melville', 3.509, 0.04, 0.015, 20.593, 2.754]
+        paradise = ['milton', 3.887, 0.093, 0.044, 52.31, 8.165]
+        caesar = ['shakespeare', 3.444, 0.117, 0.064, 11.943, 2.299]
+        hamlet = ['shakespeare', 3.464, 0.126, 0.076, 12.028, 2.209]
+        macbeth = ['shakespeare', 3.465, 0.15, 0.09, 12.134, 2.306]
+        leaves = ['whitman', 3.696, 0.08, 0.037, 36.443, 5.262]
