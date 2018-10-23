@@ -77,18 +77,29 @@ if __name__ == '__main__':
     for fid in gutenberg.fileids(): 
         # compute features, make a list of features
         features = []
-        features.append('LD: ')
-        features.append(round(lexical_div(fid), 3))
-        features.append('WPS: ')
-        features.append(round(words_per_sent(fid), 3))
         features.append('AWL: ')
         features.append(round(avgwordlen(fid), 3))
-        features.append('PPS: ')
-        features.append(round(phrasePerSent(fid), 3))
+        features.append('LD: ')
+        features.append(round(lexical_div(fid), 3))
         features.append('HLR: ')
         features.append(round(hapax(fid), 3))
+        features.append('WPS: ')
+        features.append(round(words_per_sent(fid), 3))      
+        features.append('PPS: ')
+        features.append(round(phrasePerSent(fid), 3))
+        #name = ''
+        #for char in fid:
+        #    while char != '-':
+        #        name = name + str(char)
+        
+        
+        
         
         #features.append(round(words_per_sent(fid), 3))
         #features.append(round(phrasePerSent(fid), 3))
        
         print(fid, features)
+        
+        emma = ['austen', 3.755, .038, .015, 24.823, 2.778]
+        persuasion = ['austen', 3.871, .059, .026, 26.2, 3.179]
+        sense = ['austen', 3.881, .045, ]
