@@ -4,7 +4,6 @@ template for authorship_part1.py
 You can print out a table with one row for each files,
 and the columns are the features, e.g. lexical diversity.
 You can add your own features.  Each feature should have its own function.
-
 """
 
 import nltk
@@ -21,10 +20,13 @@ def avgwordlen(file_id):
     return char / len(gutenberg.words(file_id))
 
 def hapax(file_id):
-    file = sorted(gutenberg.words(file_id))
+    file = gutenberg.words(file_id)
     textlow = [w.lower() for w in file]
-    single = [w for w in textlow if textlow.count(w) == 1]
-    return len(single) / len(file)
+    fdist = FreqDist(textlow)
+    hapax1 = fdist.hapaxes()
+    #textlow = [w.lower() for w in file]
+    #single = [w for w in textlow if textlow.count(w) == 1]
+    return len(hapax1) / len(file)
 
 def lexical_div(file_id):
     '''
@@ -83,10 +85,10 @@ if __name__ == '__main__':
         features.append(round(avgwordlen(fid), 3))
         features.append('PPS: ')
         features.append(round(phrasePerSent(fid), 3))
+        features.append('HLR: ')
+        features.append(round(hapax(fid), 3))
         
         #features.append(round(words_per_sent(fid), 3))
         #features.append(round(phrasePerSent(fid), 3))
-       # features.append(hapax(fid))
+       
         print(fid, features)
-
-    
