@@ -145,11 +145,12 @@ def print_sig_table(sig_list):
     
 def print_scores(sig_list, m_sig_list, weights):
     print('table of scores')
-    for i in range(len(sig_list)):
-        for x in range(len(m_sig_list)):
+    for x in range(len(m_sig_list)):
+        for i in range(len(sig_list)):
             score = compare_signatures(sig_list[i], m_sig_list[x], weights)
-            print(sig_list[i][0], m_sig_list[x][0])
-            print(str('score = ') + str(score))
+            print(sig_list[i][0], m_sig_list[x][0], score, sep = ' ')
+            print(' ')
+            #print(str('score = ') + str(score))
 
             
 
