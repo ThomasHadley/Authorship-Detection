@@ -154,7 +154,7 @@ def print_scores(sig_list, m_sig_list, weights):
             if score < lowscore:
                 lowscore = score
                 winner = i
-        print('\tMost Likely Related To: {}\n'.format(sig_list[winner][0]))
+        print('\t\tMost Likely Related To: {}\n'.format(sig_list[winner][0]))
             #print(str('score = ') + str(score))
 
             
