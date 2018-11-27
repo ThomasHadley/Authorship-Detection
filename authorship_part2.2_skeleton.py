@@ -141,6 +141,12 @@ def print_sig_table(sig_list):
     for debugging
     '''
     print('list of signatures')
+    headers = ['Author','Avg Word Len','Lexical Div', 'Hapax Ratio', 'Avg Sent Len', 'Avg Sent Comp']
+    print('{:30}{:20}{:20}{:20}{:20}{:20}'.format(headers[0],headers[1],headers[2],headers[3],headers[4],headers[5]))
+    #print('\nAuthor\tAvg Word Len\tLexical Div\tHapax Ratio\tAvg Sent Len\tAvg Sent Comp')
+
+    for i in range(len(sig_list)):
+        print('\n{:30}{:8}{:20}{:20}{:20}{:20}'.format(sig_list[i][0],round(sig_list[i][1],3),round(sig_list[i][2],3),round(sig_list[i][3],3),round(sig_list[i][4],3),round(sig_list[i][5],3)))
     
 def print_scores(sig_list, m_sig_list, weights):
     print('\ntable of scores\n')
@@ -150,7 +156,7 @@ def print_scores(sig_list, m_sig_list, weights):
         print('Results for {}: \n'.format(m_sig_list[x][0]))
         for i in range(len(sig_list)):
             score = compare_signatures(sig_list[i], m_sig_list[x], weights)
-            print('\t{}: {}\n'.format(sig_list[i][0], score))
+            print('\t{}: {}\n'.format(sig_list[i][0], round(score,3)))
             if score < lowscore:
                 lowscore = score
                 winner = i
