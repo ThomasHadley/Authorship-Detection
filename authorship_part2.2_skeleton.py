@@ -4,7 +4,6 @@ Created on Mon Nov 12 19:21:58 2018
 This is a skeleton with the function headers for
 the functions you should implement.
 You can add more functions
-
 @author: weissr
 """
 
@@ -144,12 +143,18 @@ def print_sig_table(sig_list):
     print('list of signatures')
     
 def print_scores(sig_list, m_sig_list, weights):
-    print('table of scores')
+    print('\ntable of scores\n')
     for x in range(len(m_sig_list)):
+        lowscore = 1000
+        winner = 0
+        print('Results for {}: \n'.format(m_sig_list[x][0]))
         for i in range(len(sig_list)):
             score = compare_signatures(sig_list[i], m_sig_list[x], weights)
-            print(sig_list[i][0], m_sig_list[x][0], score, sep = ' ')
-            print(' ')
+            print('\t{}: {}\n'.format(sig_list[i][0], score))
+            if score < lowscore:
+                lowscore = score
+                winner = i
+        print('\tMost Likely Related To: {}\n'.format(sig_list[winner][0]))
             #print(str('score = ') + str(score))
 
             
@@ -162,7 +167,8 @@ main
 if __name__ == '__main__':
     weights = [11, 33, 50, 0.04, 4]
     sig_list = []
-    fileids = gutenberg.fileids()[:2]
+    testfiles = int(input('enter number of test files: '))
+    fileids = gutenberg.fileids()[:testfiles]
     for fid in fileids: 
         # compute features, make a list of features
         words = gutenberg.words(fid)
@@ -172,7 +178,7 @@ if __name__ == '__main__':
     print_sig_table(sig_list)
     write_signatures(sig_list, 'test.csv')
     
-    n_files = int(input('enter numbr of mystery files: '))
+    n_files = int(input('enter number of mystery files: '))
     m_sig_list = []
     for f in range(n_files):
         filename = input('enter name of mystery file: ')
