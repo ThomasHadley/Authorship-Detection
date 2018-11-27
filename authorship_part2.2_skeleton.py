@@ -156,7 +156,7 @@ def print_scores(sig_list, m_sig_list, weights):
         print('Results for {}: \n'.format(m_sig_list[x][0]))
         for i in range(len(sig_list)):
             score = compare_signatures(sig_list[i], m_sig_list[x], weights)
-            print('\t{}: {}\n'.format(sig_list[i][0], round(score,3)))
+            #print('\t{}: {}\n'.format(sig_list[i][0], round(score,3)))
             if score < lowscore:
                 lowscore = score
                 winner = i
